@@ -12,7 +12,6 @@ __all__ = [
     'Require', 'find_module', 'get_module_constant', 'extract_constant'
 ]
 
-
 class Require:
     """A prerequisite to building or installing a distribution"""
 
