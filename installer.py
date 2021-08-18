@@ -17,7 +17,6 @@ def _fixup_find_links(find_links):
     assert isinstance(find_links, (tuple, list))
     return find_links
 
-
 def fetch_build_egg(dist, req):  # noqa: C901  # is too complex (16)  # FIXME
     """Fetch an egg needed for building.
 
