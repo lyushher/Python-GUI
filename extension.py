@@ -6,7 +6,6 @@ import distutils.extension
 
 from .monkey import get_unpatched
 
-
 def _have_cython():
     """
     Return True if Cython can be imported.
@@ -19,7 +18,6 @@ def _have_cython():
     except Exception:
         pass
     return False
-
 
 # for compatibility
 have_pyrex = _have_cython
@@ -49,7 +47,6 @@ class Extension(_Extension):
         target_ext = '.cpp' if lang.lower() == 'c++' else '.c'
         sub = functools.partial(re.sub, '.pyx$', target_ext)
         self.sources = list(map(sub, self.sources))
-
 
 class Library(Extension):
     """Just like a regular Extension, but built as a library instead"""
