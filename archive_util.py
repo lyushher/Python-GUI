@@ -24,7 +24,6 @@ def default_filter(src, dst):
     """The default progress/filter callback; returns True for all files"""
     return dst
 
-
 def unpack_archive(
         filename, extract_dir, progress_filter=default_filter,
         drivers=None):
