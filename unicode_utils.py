@@ -1,7 +1,6 @@
 import unicodedata
 import sys
 
-
 # HFS Plus uses decomposed UTF-8
 def decompose(path):
     if isinstance(path, str):
@@ -32,7 +31,6 @@ def filesys_decode(path):
             return path.decode(enc)
         except UnicodeDecodeError:
             continue
-
 
 def try_encode(string, enc):
     "turn unicode encoding into a functional routine"
