@@ -13,7 +13,6 @@ def decompose(path):
         pass  # Not UTF-8
     return path
 
-
 def filesys_decode(path):
     """
     Ensure that the given path is decoded,
