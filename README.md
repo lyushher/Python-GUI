@@ -12,3 +12,10 @@ When you execute the above code, a new window pops up on your screen.
 Widgets are the bread and butter of the Python GUI framework Tkinter. 
 They are the elements through which users interact with your program. 
 Each widget in Tkinter is defined by a class. 
+
+Here are some of the widgets available:
+
+**Widget Class** | **Description** 
+----- | ----- 
+Label	| Widget used to display text on the screen.
+Button | Button that can contain text and can perform an action when clicked.
