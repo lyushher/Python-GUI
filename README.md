@@ -19,3 +19,6 @@ Here are some of the widgets available:
 ----- | ----- 
 Label	| Widget used to display text on the screen.
 Button | Button that can contain text and can perform an action when clicked.
+Entry	| Text entry widget that allows only a single line of text.
+Text	| Text entry widget that allows multiline text entry.
+Frame	| Rectangular region used to group related widgets or provide padding between widgets.
