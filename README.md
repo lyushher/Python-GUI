@@ -7,6 +7,7 @@ Python with tkinter is the fastest and easiest way to create the GUI application
 Creating a GUI using tkinter is an easy task.
 When you execute the above code, a new window pops up on your screen. 
 
+
 ## Working with Widgets
 
 Widgets are the bread and butter of the Python GUI framework Tkinter. 
