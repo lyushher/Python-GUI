@@ -81,7 +81,6 @@ class PackageFinder:
                 if ('.' in dir or not cls._looks_like_package(full_path)):
                     continue
 
-                # Should this package be included?
                 if include(package) and not exclude(package):
                     yield package
 
