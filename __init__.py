@@ -5,7 +5,7 @@ import functools
 import os
 import re
 
-import _distutils_hack.override  # noqa: F401
+import _distutils_hack.override  
 
 import distutils.core
 from distutils.errors import DistutilsOptionError
@@ -30,10 +30,7 @@ __version__ = setuptools.version.__version__
 
 bootstrap_install_from = None
 
-# If we run 2to3 on .py files, should we also convert docstrings?
-# Default: yes; assume that we can detect doctests reliably
 run_2to3_on_doctests = True
-# Standard package names for fixer packages
 lib2to3_fixer_packages = ['lib2to3.fixes']
 
 
@@ -72,7 +69,7 @@ class PackageFinder:
         not the 'exclude' filter.
         """
         for root, dirs, files in os.walk(where, followlinks=True):
-            # Copy dirs to iterate over it, then empty dirs.
+            
             all_dirs = dirs[:]
             dirs[:] = []
 
