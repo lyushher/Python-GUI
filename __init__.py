@@ -84,7 +84,6 @@ class PackageFinder:
                 if include(package) and not exclude(package):
                     yield package
 
-                # Keep searching subdirectories, as there may be more packages
                 # down there, even if the parent was excluded.
                 dirs.append(dir)
 
