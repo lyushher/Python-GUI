@@ -111,7 +111,6 @@ find_namespace_packages = PEP420PackageFinder.find
 
 
 def _install_setup_requires(attrs):
-    # our PEP 517 backend patch `distutils.core.Distribution`.
     class MinimalDistribution(distutils.core.Distribution):
         """
         A minimal version of a distribution for supporting the
