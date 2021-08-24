@@ -138,7 +138,6 @@ def _install_setup_requires(attrs):
 
 
 def setup(**attrs):
-    # Make sure we have any requirements needed to interpret 'attrs'.
     _install_setup_requires(attrs)
     return distutils.core.setup(**attrs)
 
