@@ -132,7 +132,6 @@ def _install_setup_requires(attrs):
 
     dist = MinimalDistribution(attrs)
 
-    # Honor setup.cfg's options.
     dist.parse_config_files(ignore_option_errors=True)
     if dist.setup_requires:
         dist.fetch_build_eggs(dist.setup_requires)
