@@ -225,6 +225,4 @@ def findall(dir=os.curdir):
 class sic(str):
     """Treat this string as-is (https://en.wikipedia.org/wiki/Sic)"""
 
-
-# Apply monkey patches
 monkey.patch_all()
