@@ -111,7 +111,6 @@ find_namespace_packages = PEP420PackageFinder.find
 
 
 def _install_setup_requires(attrs):
-    # Note: do not use `setuptools.Distribution` directly, as
     # our PEP 517 backend patch `distutils.core.Distribution`.
     class MinimalDistribution(distutils.core.Distribution):
         """
