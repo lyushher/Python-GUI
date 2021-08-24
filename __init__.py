@@ -78,7 +78,6 @@ class PackageFinder:
                 rel_path = os.path.relpath(full_path, where)
                 package = rel_path.replace(os.path.sep, '.')
 
-                # Skip directory trees that are not valid packages
                 if ('.' in dir or not cls._looks_like_package(full_path)):
                     continue
 
