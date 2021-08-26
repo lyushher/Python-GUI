@@ -133,8 +133,7 @@ def distros_for_location(location, basename, metadata=None):
             return interpret_distro_name(
                 location, win_base, metadata, py_ver, BINARY_DIST, platform
             )
-    # Try source distro extensions (.zip, .tgz, etc.)
-    #
+        
     for ext in EXTENSIONS:
         if basename.endswith(ext):
             basename = basename[:-len(ext)]
