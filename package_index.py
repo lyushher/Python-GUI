@@ -124,7 +124,7 @@ def distros_for_location(location, basename, metadata=None):
             location=location,
             project_name=wheel.project_name,
             version=wheel.version,
-            # Increase priority over eggs.
+            
             precedence=EGG_DIST + 1,
         )]
     if basename.endswith('.exe'):
