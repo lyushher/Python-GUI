@@ -61,9 +61,7 @@ def _iglob(pathname, recursive):
     if not dirname:
         yield from glob_in_dir(dirname, basename)
         return
-    # `os.path.split()` returns the argument itself as a dirname if it is a
-    # drive or UNC path.  Prevent an infinite recursion if a drive or UNC path
-    # contains magic characters (i.e. r'\\?\C:').
+    
     if dirname != pathname and has_magic(dirname):
         dirs = _iglob(dirname, recursive)
     else:
