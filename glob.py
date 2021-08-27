@@ -54,7 +54,6 @@ def _iglob(pathname, recursive):
             if os.path.lexists(pathname):
                 yield pathname
         else:
-            # Patterns ending with a slash should match only directories
             if os.path.isdir(dirname):
                 yield pathname
         return
