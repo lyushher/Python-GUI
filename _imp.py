@@ -41,7 +41,7 @@ def find_module(module, paths=None):
             spec.loader, importlib.machinery.FrozenImporter):
         kind = PY_FROZEN
         path = None  
-        suffix = mode = ''  # imp compatibility
+        suffix = mode = ''  
     elif spec.origin == 'built-in' or static and issubclass(
             spec.loader, importlib.machinery.BuiltinImporter):
         kind = C_BUILTIN
