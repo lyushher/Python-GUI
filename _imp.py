@@ -46,7 +46,7 @@ def find_module(module, paths=None):
             spec.loader, importlib.machinery.BuiltinImporter):
         kind = C_BUILTIN
         path = None  
-        suffix = mode = ''  # imp compatibility
+        suffix = mode = ''  
     elif spec.has_location:
         path = spec.origin
         suffix = os.path.splitext(path)[1]
