@@ -132,7 +132,6 @@ def read_pkg_file(self, file):
     self.platforms = _read_list_from_msg(msg, 'platform')
     self.classifiers = _read_list_from_msg(msg, 'classifier')
 
-    # PEP 314 - these fields only exist in 1.1
     if self.metadata_version == StrictVersion('1.1'):
         self.requires = _read_list_from_msg(msg, 'requires')
         self.provides = _read_list_from_msg(msg, 'provides')
