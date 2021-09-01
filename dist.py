@@ -109,7 +109,6 @@ def read_pkg_file(self, file):
     self.name = _read_field_from_msg(msg, 'name')
     self.version = _read_field_from_msg(msg, 'version')
     self.description = _read_field_from_msg(msg, 'summary')
-    # we are filling author only.
     self.author = _read_field_from_msg(msg, 'author')
     self.maintainer = None
     self.author_email = _read_field_from_msg(msg, 'author-email')
