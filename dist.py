@@ -154,7 +154,6 @@ def single_line(val):
     return val
 
 
-# Based on Python 3.5 version
 def write_pkg_file(self, file):  # noqa: C901  # is too complex (14)  # FIXME
     """Write the PKG-INFO format data to a file object.
     """
