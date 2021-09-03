@@ -129,7 +129,6 @@ class Wheel:
             metadata=pkg_resources.PathMetadata(destination_eggdir, dist_info),
         )
 
-        # as it's difficult to convert back from the syntax:
         # foobar; "linux" in sys_platform and extra == 'test'
         def raw_req(req):
             req.marker = None
