@@ -153,7 +153,7 @@ class Wheel:
                 extras_require=extras_require,
             ),
         )
-        # Temporarily disable info traces.
+        
         log_threshold = log._global_log.threshold
         log.set_threshold(log.WARN)
         try:
