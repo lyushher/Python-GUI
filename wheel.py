@@ -79,7 +79,7 @@ class Wheel:
         ).egg_name() + '.egg'
 
     def get_dist_info(self, zf):
-        # find the correct name of the .dist-info dir in the wheel file
+        
         for member in zf.namelist():
             dirname = posixpath.dirname(member)
             if (dirname.endswith('.dist-info') and
