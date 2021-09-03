@@ -42,7 +42,7 @@ def unpack(src_dir, dst_dir):
                 
                 os.renames(src, dst)
                 del dirnames[n]
-    # Cleanup.
+                
     for dirpath, dirnames, filenames in os.walk(src_dir, topdown=True):
         assert not filenames
         os.rmdir(dirpath)
