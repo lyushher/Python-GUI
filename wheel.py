@@ -39,7 +39,7 @@ def unpack(src_dir, dst_dir):
             src = os.path.join(dirpath, d)
             dst = os.path.join(dst_dir, subdir, d)
             if not os.path.exists(dst):
-                # rename it and prune it from os.walk list.
+                
                 os.renames(src, dst)
                 del dirnames[n]
     # Cleanup.
