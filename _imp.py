@@ -74,7 +74,6 @@ def get_frozen_object(module, paths=None):
         raise ImportError("Can't find %s" % module)
     return spec.loader.get_code(module)
 
-
 def get_module(module, paths, info):
     spec = find_spec(module, paths)
     if not spec:
