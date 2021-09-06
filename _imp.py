@@ -9,7 +9,6 @@ import importlib.machinery
 
 from .py34compat import module_from_spec
 
-
 PY_SOURCE = 1
 PY_COMPILED = 2
 C_EXTENSION = 3
