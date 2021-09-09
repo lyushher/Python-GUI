@@ -15,7 +15,6 @@ C_EXTENSION = 3
 C_BUILTIN = 6
 PY_FROZEN = 7
 
-
 def find_spec(module, paths):
     finder = (
         importlib.machinery.PathFinder().find_spec
