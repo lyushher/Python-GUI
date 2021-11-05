@@ -9,7 +9,7 @@ Creating a GUI using tkinter is an easy task.
 When you execute the above code, a new window pops up on your screen. 
 
 
-## Working with Widgets
+## Working with Widgets;
 
 Widgets are the bread and butter of the Python GUI framework Tkinter. 
 They are the elements through which users interact with your program. 
