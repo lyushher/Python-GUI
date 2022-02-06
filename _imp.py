@@ -9,13 +9,11 @@ import importlib.machinery
 
 from .py34compat import module_from_spec
 
-
 PY_SOURCE = 1
 PY_COMPILED = 2
 C_EXTENSION = 3
 C_BUILTIN = 6
 PY_FROZEN = 7
-
 
 def find_spec(module, paths):
     finder = (
@@ -40,13 +38,13 @@ def find_module(module, paths=None):
     if spec.origin == 'frozen' or static and issubclass(
             spec.loader, importlib.machinery.FrozenImporter):
         kind = PY_FROZEN
-        path = None  # imp compabilty
-        suffix = mode = ''  # imp compatibility
+        path = None  
+        suffix = mode = ''  
     elif spec.origin == 'built-in' or static and issubclass(
             spec.loader, importlib.machinery.BuiltinImporter):
         kind = C_BUILTIN
-        path = None  # imp compabilty
-        suffix = mode = ''  # imp compatibility
+        path = None  
+        suffix = mode = ''  
     elif spec.has_location:
         path = spec.origin
         suffix = os.path.splitext(path)[1]
@@ -73,7 +71,6 @@ def get_frozen_object(module, paths=None):
     if not spec:
         raise ImportError("Can't find %s" % module)
     return spec.loader.get_code(module)
-
 
 def get_module(module, paths, info):
     spec = find_spec(module, paths)

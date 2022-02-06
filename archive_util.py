@@ -153,7 +153,7 @@ def _iter_open_tar(tar_obj, extract_dir, progress_filter):
     with contextlib.closing(tar_obj):
         for member in tar_obj:
             name = member.name
-            # don't extract absolute paths or ones with .. in them
+            
             if name.startswith('/') or '..' in name.split('/'):
                 continue
 

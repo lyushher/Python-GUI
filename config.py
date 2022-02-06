@@ -15,7 +15,6 @@ from distutils.errors import DistutilsOptionError, DistutilsFileError
 from setuptools.extern.packaging.version import LegacyVersion, parse
 from setuptools.extern.packaging.specifiers import SpecifierSet
 
-
 class StaticModule:
     """
     Attempt to load the module by the name

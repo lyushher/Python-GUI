@@ -5,7 +5,7 @@ import functools
 import os
 import re
 
-import _distutils_hack.override  # noqa: F401
+import _distutils_hack.override  
 
 import distutils.core
 from distutils.errors import DistutilsOptionError
@@ -30,10 +30,7 @@ __version__ = setuptools.version.__version__
 
 bootstrap_install_from = None
 
-# If we run 2to3 on .py files, should we also convert docstrings?
-# Default: yes; assume that we can detect doctests reliably
 run_2to3_on_doctests = True
-# Standard package names for fixer packages
 lib2to3_fixer_packages = ['lib2to3.fixes']
 
 
@@ -72,7 +69,7 @@ class PackageFinder:
         not the 'exclude' filter.
         """
         for root, dirs, files in os.walk(where, followlinks=True):
-            # Copy dirs to iterate over it, then empty dirs.
+            
             all_dirs = dirs[:]
             dirs[:] = []
 
@@ -81,16 +78,12 @@ class PackageFinder:
                 rel_path = os.path.relpath(full_path, where)
                 package = rel_path.replace(os.path.sep, '.')
 
-                # Skip directory trees that are not valid packages
                 if ('.' in dir or not cls._looks_like_package(full_path)):
                     continue
 
-                # Should this package be included?
                 if include(package) and not exclude(package):
                     yield package
 
-                # Keep searching subdirectories, as there may be more packages
-                # down there, even if the parent was excluded.
                 dirs.append(dir)
 
     @staticmethod
@@ -118,8 +111,6 @@ find_namespace_packages = PEP420PackageFinder.find
 
 
 def _install_setup_requires(attrs):
-    # Note: do not use `setuptools.Distribution` directly, as
-    # our PEP 517 backend patch `distutils.core.Distribution`.
     class MinimalDistribution(distutils.core.Distribution):
         """
         A minimal version of a distribution for supporting the
@@ -141,14 +132,12 @@ def _install_setup_requires(attrs):
 
     dist = MinimalDistribution(attrs)
 
-    # Honor setup.cfg's options.
     dist.parse_config_files(ignore_option_errors=True)
     if dist.setup_requires:
         dist.fetch_build_eggs(dist.setup_requires)
 
 
 def setup(**attrs):
-    # Make sure we have any requirements needed to interpret 'attrs'.
     _install_setup_requires(attrs)
     return distutils.core.setup(**attrs)
 
@@ -236,6 +225,4 @@ def findall(dir=os.curdir):
 class sic(str):
     """Treat this string as-is (https://en.wikipedia.org/wiki/Sic)"""
 
-
-# Apply monkey patches
 monkey.patch_all()

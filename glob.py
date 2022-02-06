@@ -12,7 +12,6 @@ import fnmatch
 
 __all__ = ["glob", "iglob", "escape"]
 
-
 def glob(pathname, recursive=False):
     """Return a list of paths matching a pathname pattern.
 
@@ -54,7 +53,6 @@ def _iglob(pathname, recursive):
             if os.path.lexists(pathname):
                 yield pathname
         else:
-            # Patterns ending with a slash should match only directories
             if os.path.isdir(dirname):
                 yield pathname
         return
@@ -62,9 +60,7 @@ def _iglob(pathname, recursive):
     if not dirname:
         yield from glob_in_dir(dirname, basename)
         return
-    # `os.path.split()` returns the argument itself as a dirname if it is a
-    # drive or UNC path.  Prevent an infinite recursion if a drive or UNC path
-    # contains magic characters (i.e. r'\\?\C:').
+    
     if dirname != pathname and has_magic(dirname):
         dirs = _iglob(dirname, recursive)
     else:
@@ -74,12 +70,6 @@ def _iglob(pathname, recursive):
     for dirname in dirs:
         for name in glob_in_dir(dirname, basename):
             yield os.path.join(dirname, name)
-
-
-# These 2 helper functions non-recursively glob inside a literal directory.
-# They return a list of basenames. `glob1` accepts a pattern while `glob0`
-# takes a literal basename (so it only has to check for its existence).
-
 
 def glob1(dirname, pattern):
     if not dirname:

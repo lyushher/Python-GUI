@@ -39,11 +39,10 @@ def unpack(src_dir, dst_dir):
             src = os.path.join(dirpath, d)
             dst = os.path.join(dst_dir, subdir, d)
             if not os.path.exists(dst):
-                # Directory does not exist in destination,
-                # rename it and prune it from os.walk list.
+                
                 os.renames(src, dst)
                 del dirnames[n]
-    # Cleanup.
+                
     for dirpath, dirnames, filenames in os.walk(src_dir, topdown=True):
         assert not filenames
         os.rmdir(dirpath)
@@ -80,7 +79,7 @@ class Wheel:
         ).egg_name() + '.egg'
 
     def get_dist_info(self, zf):
-        # find the correct name of the .dist-info dir in the wheel file
+        
         for member in zf.namelist():
             dirname = posixpath.dirname(member)
             if (dirname.endswith('.dist-info') and
@@ -130,8 +129,6 @@ class Wheel:
             metadata=pkg_resources.PathMetadata(destination_eggdir, dist_info),
         )
 
-        # Note: Evaluate and strip markers now,
-        # as it's difficult to convert back from the syntax:
         # foobar; "linux" in sys_platform and extra == 'test'
         def raw_req(req):
             req.marker = None
@@ -156,7 +153,7 @@ class Wheel:
                 extras_require=extras_require,
             ),
         )
-        # Temporarily disable info traces.
+        
         log_threshold = log._global_log.threshold
         log.set_threshold(log.WARN)
         try:

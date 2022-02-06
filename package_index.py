@@ -88,7 +88,7 @@ def egg_info_for_url(url):
     parts = urllib.parse.urlparse(url)
     scheme, server, path, parameters, query, fragment = parts
     base = urllib.parse.unquote(path.split('/')[-1])
-    if server == 'sourceforge.net' and base == 'download':  # XXX Yuck
+    if server == 'sourceforge.net' and base == 'download':  
         base = urllib.parse.unquote(path.split('/')[-2])
     if '#' in base:
         base, fragment = base.split('#', 1)
@@ -124,7 +124,7 @@ def distros_for_location(location, basename, metadata=None):
             location=location,
             project_name=wheel.project_name,
             version=wheel.version,
-            # Increase priority over eggs.
+            
             precedence=EGG_DIST + 1,
         )]
     if basename.endswith('.exe'):
@@ -133,8 +133,7 @@ def distros_for_location(location, basename, metadata=None):
             return interpret_distro_name(
                 location, win_base, metadata, py_ver, BINARY_DIST, platform
             )
-    # Try source distro extensions (.zip, .tgz, etc.)
-    #
+        
     for ext in EXTENSIONS:
         if basename.endswith(ext):
             basename = basename[:-len(ext)]

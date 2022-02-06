@@ -109,7 +109,6 @@ def read_pkg_file(self, file):
     self.name = _read_field_from_msg(msg, 'name')
     self.version = _read_field_from_msg(msg, 'version')
     self.description = _read_field_from_msg(msg, 'summary')
-    # we are filling author only.
     self.author = _read_field_from_msg(msg, 'author')
     self.maintainer = None
     self.author_email = _read_field_from_msg(msg, 'author-email')
@@ -133,7 +132,6 @@ def read_pkg_file(self, file):
     self.platforms = _read_list_from_msg(msg, 'platform')
     self.classifiers = _read_list_from_msg(msg, 'classifier')
 
-    # PEP 314 - these fields only exist in 1.1
     if self.metadata_version == StrictVersion('1.1'):
         self.requires = _read_list_from_msg(msg, 'requires')
         self.provides = _read_list_from_msg(msg, 'provides')
@@ -155,7 +153,6 @@ def single_line(val):
     return val
 
 
-# Based on Python 3.5 version
 def write_pkg_file(self, file):  # noqa: C901  # is too complex (14)  # FIXME
     """Write the PKG-INFO format data to a file object.
     """
